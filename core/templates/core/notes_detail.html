@@ -1,0 +1,23 @@
+<div>
+  <a href="/">👈 Back to Notes List </a><br>
+</div>
+
+{% extends "base.html" %} 
+
+{% block heading %}
+<h2>Note {{ pk }}: {{ note.title }}</h2>
+{% endblock %} 
+
+{% block content %}
+
+<div class="note" id="{{ pk }}">
+  <p style="margin: 0 25px 50px;">{{ note.body }}</p>
+  <h4><a href="{% url 'notes_new' note.pk %}" class="button-active"> New Note</a></h4>
+  <h4><a href="{% url 'notes_edit' note.pk %}" class="button-active"> Edit Note</a></h4>
+  <h4><a href="{% url 'notes_delete' note.pk%}" class="button button-danger"> Delete Note</a></h4>
+</div>
+<footer>
+    <p>{{note.created_at}}</p>
+    <p>{{note.updated_at}}</p>
+</footer>
+{% endblock %}

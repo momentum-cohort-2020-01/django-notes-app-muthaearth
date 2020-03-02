@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block heading %}
+<h2>Notes 2 Self</h2>
+{% endblock %}
+
+{% block content %}
+{% for note in notes %}
+<div class="note" id="{{note.pk}}">
+  <h3><a href="/notes/new/"> New Note</a></h3>
+  <a style="font-weight: bold;" href="{% url 'notes_detail' note.pk %}">{{ note.title }}</a>
+  <p>{{ note.body }}</p>
+</div>
+<footer>
+    <p>{{note.created_at}}</p>
+    <p>{{note.updated_at}}</p>
+</footer>
+{% endfor %} 
+{% endblock %}
